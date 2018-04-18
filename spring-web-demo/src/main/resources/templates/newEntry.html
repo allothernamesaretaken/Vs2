@@ -6,14 +6,12 @@
 </head>
 <body>
 	<h1>New Post</h1>
-	<h3>dieses Formular sollte geändert werden</h3>
-	<form action="#" th:action="@{/greeting}" th:object="${greeting}"
+	<form action="#"
 		method="post">
-		<p> Name <input type="text" th:field="*{name}" /></p>
-		<p> Message <input type="text" th:field="*{content}" /></p>
-		<p> Bootstrap <input type="checkbox" th:field="*{bootstrap}"/></p>
+		<h3> $User-Name</h3>
+		<p> Message <input type="text"/></p>
 		<p> <input type="submit" value="Submit" /></p>
 	</form>
-	<a th:href="@{/greeting}">Reset</a>
+	<a href="#">Reset</a>
 </body>
 </html>
