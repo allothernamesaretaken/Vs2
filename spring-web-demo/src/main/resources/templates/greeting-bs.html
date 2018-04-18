@@ -17,7 +17,7 @@
 			<p th:text="'Hello ' + ( ${greeting.name} != null ? ${greeting.name} + '!' : 'World!')"/>
 			<p th:text="${greeting.content} != null ? ' Your message: ' + ${greeting.content}"/>
 			<h3>Your Comment</h3>
-			<form class="form-inline" action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+			<form class="form-inline" action="#" th:action="@{/greeting2}" th:object="${greeting}" method="post">
 				<div class="form-group">
 					<label for="f1"> Name </label>
 					<input placeholder="Bob" id="f1" type="text" th:field="*{name}" />
