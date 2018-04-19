@@ -1,11 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<th:block th:include="index :: head"></th:block>
 </head>
 <body>
-	<h1>Timeline von user $user!</h1>
-	
+
+
+<th:block th:include="index :: navbar"></th:block>
+
+<div class="container">
+	<div class="box">
+		<h3>Timeline of <span th:text="${owner.name}"></span></h3>
+		<p th:text="${owner.description}"></p>
+	</div>
+
+	<th:block th:fragment="timeline">
+		<div class="container">
+			<div class="box">
+				<h2>Publish new post</h2>
+				<form class="form-inline" action="#" th:action="@{/timeline}" th:object="${entry}" method="post">
+					<div class="form-group">
+						<textarea placeholder="Your Message here" id="f1" type="text" th:field="*{content}"></textarea>
+					</div>
+					<input type="submit" value="Publish"/>
+				</form>
+			</div>
+			<h2>Timeline</h2>
+			<div class="container" th:each="post : ${posts}">
+				<h3 th:text="${post.user}"></h3>
+				<p th:text="${post.content}"></p>
+			</div>
+		</div>
+	</th:block>
+</div>
+
+<th:block th:include="index :: footer"></th:block>
 </body>
 </html>

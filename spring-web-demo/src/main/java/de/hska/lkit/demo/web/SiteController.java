@@ -36,8 +36,21 @@ public class SiteController {
 	}
 
 	@RequestMapping(value = "/timeline")
-	public String timelineSubmit(@ModelAttribute TimeLine timeline, Model model) {
-		model.addAttribute("Timeline", timeline != null ? timeline : new TimeLine());
+	public String timelineSubmit(@ModelAttribute Post entry, Model model) {
+		Post[] posts = new Post[5];
+		posts[0] = new Post();
+		for(int i=0; i < posts.length; i++){
+			posts[i] = new Post();
+			posts[i].setUser("User"+i);
+			posts[i].setContent("Lorem Ipsum....");
+		}
+		UserModel owner = new UserModel();
+		owner.setName("Global Timeline");
+		owner.setDescription("This is the timeline of the global user following everyone");
+
+		model.addAttribute("posts", posts);
+		model.addAttribute("owner", owner);
+		model.addAttribute("entry", entry != null ? entry : new Post());
 		return "timeline";
 	}
 	@RequestMapping(value = "/user")

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Getting Started</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" description="text/html; charset=UTF-8" />
 </head>
 <body>
 	<h1>Login</h1>
@@ -11,7 +11,7 @@
 	<form action="#" th:action="@{/greeting}" th:object="${greeting}"
 		method="post">
 		<p> Name <input type="text" th:field="*{user}" /></p>
-		<p> Message <input type="text" th:field="*{content}" /></p>
+		<p> Message <input type="text" th:field="*{description}" /></p>
 		<p> Bootstrap <input type="checkbox" th:field="*{bootstrap}"/></p>
 		<p> <input type="submit" value="Submit" /></p>
 	</form>

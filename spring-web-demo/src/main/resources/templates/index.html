@@ -12,7 +12,7 @@
 </head>
 <body>
     <th:block th:fragment="navbar">
-        <div class="placeholder"></div>
+        <div style="min-height: 50px;"></div>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tent"></span>&nbsp;Microblog</a>
+                    <a class="navbar-brand" href="/">Microblog</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,36 +67,25 @@
 
     <th:block th:fragment="timeline">
         <div class="container">
+            <div class="box">
+                <h2>Publish new post</h2>
+                <form class="form-inline" action="#" th:action="@{/newEntry}" th:object="${entry}" method="post">
+                    <div class="form-group">
+                        <label for="f1">Content</label>
+                        <input placeholder="Your Message here" id="f1" type="text" th:field="*{description}" />
+                    </div>
+                    <input type="submit" value="Publish"/>
+                </form>
+            </div>
             <h2>Timeline</h2>
             <div class="container" th:each="post : ${posts}">
                 <h3 th:text="${post.user}"></h3>
-                <p th:text="${post.content}"></p>
+                <p th:text="${post.description}"></p>
             </div>
         </div>
     </th:block>
 
-    <div class="container">
-        <div class="box">
-            <h1>Greeting!</h1>
-            <p th:text="'Hello ' + ( ${greeting.user} != null ? ${greeting.user} + '!' : 'World!')"/>
-            <p th:text="${greeting.content} != null ? ' Your message: ' + ${greeting.content}"/>
-            <h3>Your Comment</h3>
-            <form class="form-inline" action="#" th:action="@{/}" th:object="${greeting}" method="post">
-                <div class="form-group">
-                    <label for="f1"> Name </label>
-                    <input placeholder="Bob" id="f1" type="text" th:field="*{user}" />
-                </div>
-                <br />
-                <div class="form-group">
-                    <label for="f2"> Message </label>
-                    <input placeholder="hello" id="f2" type="text" th:field="*{content}" />
-                </div>
-                <br />
-                <input type="submit" value="Submit"/>
-            </form>
-        </div>
-        <a class="btn btn-default" th:href="@{/greeting}"><span class="glyphicon glyphicon-trash"></span>&nbsp;Reset</a>
-    </div>
+
 
     <span th:fragment="footer">
         <!-- Bootstrap core JavaScript
