@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<th:block th:include="index :: head"></th:block>
 </head>
 <body>
+
+    <th:block th:include="index :: navbar"></th:block>
+
 	<h1>New Post</h1>
 	<form action="#"
 		method="post">
@@ -13,5 +15,7 @@
 		<p> <input type="submit" value="Submit" /></p>
 	</form>
 	<a href="#">Reset</a>
+
+    <th:block th:include="index :: footer"></th:block>
 </body>
 </html>
