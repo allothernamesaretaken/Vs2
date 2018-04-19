@@ -10,7 +10,7 @@
 	<h3>Post you password in plaintext here</h3>
 	<form action="#" th:action="@{/greeting}" th:object="${greeting}"
 		method="post">
-		<p> Name <input type="text" th:field="*{name}" /></p>
+		<p> Name <input type="text" th:field="*{user}" /></p>
 		<p> Message <input type="text" th:field="*{content}" /></p>
 		<p> Bootstrap <input type="checkbox" th:field="*{bootstrap}"/></p>
 		<p> <input type="submit" value="Submit" /></p>

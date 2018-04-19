@@ -8,6 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SiteController {
 
+	@RequestMapping(value = "/")
+	public String index(@ModelAttribute Post post, Model model) {
+		model.addAttribute("greeting", post != null ? post : new Post());
+
+
+
+
+		return "index";
+	}
+
 	@RequestMapping(value = "/greeting")
 	public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
 		model.addAttribute("greeting", greeting != null ? greeting : new Greeting());
@@ -37,8 +47,8 @@ public class SiteController {
 	}
 
 	@RequestMapping(value = "/newEntry")
-	public String newEntrySubmit(@ModelAttribute NewEntry entry, Model model) {
-		model.addAttribute("NewEntry", entry != null ? entry : new NewEntry());
+	public String newEntrySubmit(@ModelAttribute Post entry, Model model) {
+		model.addAttribute("Post", entry != null ? entry : new Post());
 		return "newEntry";
 	}
 

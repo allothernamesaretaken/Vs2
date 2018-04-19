@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-web-demo</name>
+	<user>spring-web-demo</user>
 	<description>VS2 Lab Vorstudie</description>
 
 	<parent>
