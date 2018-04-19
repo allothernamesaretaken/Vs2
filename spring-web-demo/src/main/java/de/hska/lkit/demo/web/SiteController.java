@@ -30,8 +30,8 @@ public class SiteController {
 	}
 
 	@RequestMapping(value = "/login")
-	public String loginSubmit(@ModelAttribute Login login, Model model) {
-		model.addAttribute("login", login != null ? login : new Login());
+	public String loginSubmit(@ModelAttribute Login attempt, Model model) {
+		model.addAttribute("attempt", attempt != null ? attempt : new Login());
 		return "login";
 	}
 
@@ -44,7 +44,7 @@ public class SiteController {
 			posts[i].setUser("User"+i);
 			posts[i].setContent("Lorem Ipsum....");
 		}
-		UserModel owner = new UserModel();
+		User owner = new User();
 		owner.setName("Global Timeline");
 		owner.setDescription("This is the timeline of the global user following everyone");
 
@@ -53,9 +53,10 @@ public class SiteController {
 		model.addAttribute("entry", entry != null ? entry : new Post());
 		return "timeline";
 	}
+	
 	@RequestMapping(value = "/user")
-	public String userSubmit(@ModelAttribute UserModel user, Model model) {
-		model.addAttribute("user", user != null ? user : new UserModel());
+	public String userSubmit(@ModelAttribute User user, Model model) {
+		model.addAttribute("user", user != null ? user : new User());
 		Post[] posts = new Post[5];
 		posts[0] = new Post();
 		for(int i=0; i < posts.length; i++){

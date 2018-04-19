@@ -3,8 +3,7 @@ package de.hska.lkit.demo.web;
 public class Login {
 
     private String name;
-    private String content;
-    private boolean bootstrap;
+    private String password;
 
     public String getName() {
         return name;
@@ -14,19 +13,11 @@ public class Login {
         this.name = name;
     }
 
-    public String getContent() {
-        return content;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-	public boolean isBootstrap() {
-		return bootstrap;
-	}
-
-	public void setBootstrap(boolean bootstrap) {
-		this.bootstrap = bootstrap;
-	}    
 }

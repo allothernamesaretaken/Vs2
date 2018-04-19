@@ -1,20 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Getting Started</title>
-<meta http-equiv="Content-Type" description="text/html; charset=UTF-8" />
+	<th:block th:include="index :: head"></th:block>
 </head>
 <body>
-	<h1>Login</h1>
 
-	<h3>Post you password in plaintext here</h3>
-	<form action="#" th:action="@{/greeting}" th:object="${greeting}"
-		method="post">
-		<p> Name <input type="text" th:field="*{user}" /></p>
-		<p> Message <input type="text" th:field="*{description}" /></p>
-		<p> Bootstrap <input type="checkbox" th:field="*{bootstrap}"/></p>
-		<p> <input type="submit" value="Submit" /></p>
-	</form>
-	<a th:href="@{/greeting}">Reset</a>
+	<th:block th:include="index :: navbar"></th:block>
+
+    <div class="container">
+        <div class="box">
+            <h2>User Login</h2>
+            <form action="#"
+                  method="post">
+                <form class="form-inline" action="#" th:action="@{/login}" th:object="${attempt}" method="post">
+                    <div class="form-group">
+                        <input placeholder="Username" id="f1" type="text" th:field="*{name}" />
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Password" id="f2" type="password" th:field="*{password}" />
+                    </div>
+                    <input type="submit" value="Sign In"/>
+                </form>
+            </form>
+        </div>
+    </div>
+
+	<th:block th:include="index :: footer"></th:block>
 </body>
 </html>
