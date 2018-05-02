@@ -10,10 +10,9 @@
 
 	<div class="container">
         <div class="box">
-            <h1>User Profil {Username}</h1>
+            <h1>User Profil <th:block th:text="${user.name}"></th:block></h1>
             <p>User description</p>
         </div>
-
 	</div>
 
 	<th:block th:include="index :: footer"></th:block>
