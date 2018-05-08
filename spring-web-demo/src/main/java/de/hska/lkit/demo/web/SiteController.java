@@ -44,7 +44,7 @@ public class SiteController {
 			posts[i].setUser("User"+i);
 			posts[i].setContent("Lorem Ipsum....");
 		}
-		User owner = new User();
+		UserModel owner = new UserModel();
 		owner.setName("Global Timeline");
 		owner.setDescription("This is the timeline of the global user following everyone");
 
@@ -54,10 +54,17 @@ public class SiteController {
 		return "timeline";
 	}
 	
-	@RequestMapping(value = "/user")
-	public String userSubmit(@ModelAttribute User user, Model model) {
-		model.addAttribute("user", user != null ? user : new User());
-
+	@RequestMapping(value = "/user/{username}")
+	public String userSubmit(@ModelAttribute UserModel user, Model model) {
+		model.addAttribute("user", user != null ? user : new UserModel());
+		Post[] posts = new Post[5];
+		posts[0] = new Post();
+		for(int i=0; i < posts.length; i++){
+			posts[i] = new Post();
+			posts[i].setUser("User"+i);
+			posts[i].setContent("Lorem Ipsum....");
+		}
+		model.addAttribute("posts", posts);
 		return "user";
 	}
 
