@@ -3,8 +3,7 @@ package de.hska.lkit.demo.web;
 public class TimeLine {
 
     private String name;
-    private String content;
-    private boolean bootstrap;
+    private String description;
 
     public String getName() {
         return name;
@@ -14,19 +13,11 @@ public class TimeLine {
         this.name = name;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String content) {
+        this.description = content;
     }
-
-	public boolean isBootstrap() {
-		return bootstrap;
-	}
-
-	public void setBootstrap(boolean bootstrap) {
-		this.bootstrap = bootstrap;
-	}    
 }
